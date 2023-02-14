@@ -1,10 +1,12 @@
-import json
+import json,os
 import requests
+import setting
 
-cloudflare_api = "https://api.cloudflare.com/client/v4/"
-zone_id = "76f2fb27077bfc7a3fbf8bee90739657"
-auth_key = "45caf666401690e41da888da405b0b99ac01a"
-auth_email = "dlin12457.work@gmail.com"
+
+cloudflare_api = os.getenv('cloudflare_api')
+zone_id = os.getenv('zone_id')
+auth_key = os.getenv('auth_key')
+auth_email = os.getenv('auth_email') 
 headers = {'X-Auth-Key': auth_key, 'Content-Type':'application/json',"X-Auth-Email": auth_email}
 
 cloudflare_dns = cloudflare_api + "zones/" + zone_id + "/dns_records"  
